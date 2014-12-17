@@ -1,0 +1,10 @@
+<project name="jolie-utils" default="compile">
+	<target name="clean">
+		<delete dir="lib" />
+	</target>
+
+	<target name="compile">
+		<mkdir dir="lib" />
+		<javac srcdir="src" destdir="lib" classpath="/opt/jolie/jolie.jar" includeantruntime="false" />
+	</target>
+</project>
