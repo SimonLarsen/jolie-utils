@@ -1,5 +1,12 @@
+type FileUtilsTempFileRequest : void {
+	.prefix : string
+	.suffix : string
+}
+
 interface FileUtilsInterface {
-	RequestResponse: getLastModified(string)(long)
+	RequestResponse:
+		getLastModified(string)(long),
+		createTempFile(FileUtilsTempFileRequest)(string) throws CouldNotCreateFile
 }
 
 outputPort FileUtils {

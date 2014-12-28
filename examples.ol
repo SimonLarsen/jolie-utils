@@ -23,6 +23,12 @@ main {
 	getLastModified@FileUtils("examples.ol")(modified);
 	println@Console("examples.iol was last modified at: " + modified)();
 
+	// Create temporary file
+	tempreq.prefix = "foo";
+	tempreq.suffix = "bar";
+	createTempFile@FileUtils(tempreq)(temppath);
+	println@Console("Temp file: " + temppath)();
+
 	/*
 	 * format.iol
 	 */
