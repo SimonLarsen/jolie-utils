@@ -3,6 +3,7 @@ include "console.iol"
 include "environment.iol"
 include "file_utils.iol"
 include "format.iol"
+include "version_utils.iol"
 
 main {
 	/*
@@ -44,6 +45,14 @@ main {
 	template.name = "John";
 	template.country = "Denmark";
 	template@Format(template)(output);
-	println@Console(output)()
+	println@Console(output)();
 
+	// Compare version strings
+	compare.a = "1.0.2";
+	compare.b = "0.9.3";
+	compare@VersionUtils(compare)(vercomp);
+	println@Console(vercomp)();
+	if(vercomp == 1) {
+		println@Console(compare.a + " is newer than " + compare.b)()
+	}
 }
