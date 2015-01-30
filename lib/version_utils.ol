@@ -18,24 +18,20 @@ main {
 		bsplit.regex = "\\.";
 		split@StringUtils(bsplit)(bparts);
 
-		parts = #aparts.result;
-		if(#bparts.result > parts) {
+		if(#aparts.result > #bparts.result) {
+			parts = #aparts.result
+		} else {
 			parts = #bparts.result
 		};
 
 		done = false;
 		for(i = 0, i < parts && !done, i++) {
 			done = true;
-			if(aparts.result[i] == "*"
-			|| bparts.result[i] == "*") {
-				response = 0;
-				done = false
-			}
-			else if(aparts.result[i] == null) {
-				response = 1
-			}
-			else if(bparts.result[i] == null) {
+			if(aparts.result[i] == null || aparts.result[i] == "*") {
 				response = -1
+			}
+			else if(bparts.result[i] == null || bparts.result[i] == "*") {
+				response = 1
 			}
 			else {
 				anum = int(aparts.result[i]);
